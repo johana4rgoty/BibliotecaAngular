@@ -20,6 +20,18 @@ h2, h3, h4, h5, h6{
 /* Style class */
 
 /* CLASES DEL NAV */
+
+.conte-all{
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    z-index: 3;
+    /* visibility: hidden; */
+    
+}
 .mdl-layout__header-row{
     margin:10px;
     color: white;    
@@ -59,7 +71,11 @@ h2, h3, h4, h5, h6{
     background-color: #fff;
     box-shadow: 6px 0 6px rgba(0,0,0,.1);
     border-right: 1px solid rgba(0,0,0,.12);
-  
+    /* width: 100%;
+    height: 100%;
+    overflow: auto; */
+    -webkit-overflow-scrolling: touch;
+
 }
 .mdl-layout-title{
     font-family: 'Fjalla One', sans-serif;
@@ -83,5 +99,17 @@ h2, h3, h4, h5, h6{
     text-align: left;
     width: 93%;
     word-wrap: break-word;
+    
+}
+
+/* CONTENIDO */
+
+.conte-pages{
+    min-height: 100vh;
+    /* padding: 800px 3rem 2rem 200rem; */
+    margin: 0px 2rem 2rem 50rem;
+    background: #444;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
     
 }

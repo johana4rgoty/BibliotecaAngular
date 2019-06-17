@@ -4,12 +4,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { InicioComponent } from './components/inicio/inicio.component';
+import { BibliotecaComponent } from './components/biblioteca/biblioteca.component';
+import { RegistroComponent } from './components/registro/registro.component';
 // import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 // import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InicioComponent,
+    BibliotecaComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

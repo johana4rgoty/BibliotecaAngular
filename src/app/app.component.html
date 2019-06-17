@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class=" mdl-js-layout ">
+<div class=" mdl-js-layout conte-all">
   <header class="mdl-layout__header ">
  
  
@@ -56,7 +56,7 @@
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">Menu</span>
       <nav class="mdl-navigation menu-navegation">
-        <a class="mdl-navigation__link" href="">
+        <a class="mdl-navigation__link" [routerLink]="['/Biblioteca']">
             <i class="fas fa-book"></i>
             Biblioteca Virtual</a>
         <a class="mdl-navigation__link" href="">
@@ -76,17 +76,26 @@
             <i class="fas fa-clock"></i>
             Horarios</a>
       </nav>
-    </div>
-    <main class="mdl-layout__content">
-      <div class="page-content">
-        <!-- Your content goes here -->
-        <router-outlet></router-outlet>
-      </div>
-    </main>
+    </div>    
+  
   </div>
+  <main class="mdl-layout__content conte-pages" style="padding: 20px;">
+    <!-- <div class="page-content"> -->
+     <!-- Your content goes here -->tefabvgvbhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+     hhhh
+    <router-outlet></router-outlet>
+
+ </main>
+ 
+  
     </div>
+
+
+
+    
  
  
  
+
 
   
