@@ -1,21 +1,92 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class=" mdl-js-layout ">
+  <header class="mdl-layout__header ">
+ 
+ 
+    <div class="mdl-layout__header-row"> 
+      <div class="nav-header-logo">
+        <a class="nav-logo">
+          <!-- Logo -->
+          <img src="../assets/img/unicaucalogoB.png" width="70" height="70" alt="?">
+          <!-- Title -->
+          <span class="nav-title">
+            Universidad del Cauca
+          </span>
+        </a>
+      </div>
+ 
+ 
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">UNICAUCA</a>
+       
+      <div class="btn-group" dropdown>       
+          <button id="button-basic" dropdownToggle type="button"
+           class="btn btn-primary dropdown-toggle  mdl-js-button mdl-button--raised mdl-button--colored btn-login"  aria-controls="dropdown-basic">
+           Login
+              <i class="fas fa-user-circle"></i>
+      </button>
+          <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
+              role="menu" aria-labelledby="button-basic">
+            <li role="menuitem"><a class="dropdown-item" href="#">Iniciar Sesion</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">user</a></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Informacion</a></li>
+            <li class="divider dropdown-divider"></li>
+            <li role="menuitem"><a class="dropdown-item" href="#">Cerrar Sesion</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link" href="">Link</a>
+    </nav>
+  </div>
+ 
+  <!-- No header, and the drawer stays open on larger screens (fixed drawer). -->
+ <div class=" mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer">
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation menu-navegation">
+        <a class="mdl-navigation__link" href="">
+            <i class="fas fa-book"></i>
+            Biblioteca Virtual</a>
+        <a class="mdl-navigation__link" href="">
+            <i class="fas fa-user-plus"></i>
+            Registrarse</a>
+        <a class="mdl-navigation__link" href="">
+            <i class="fas fa-bookmark"></i>
+            Reservas</a>
+        <a class="mdl-navigation__link" href="">
+            <i class="fas fa-info-circle"></i>
+            Informacion</a>
+        <a class="mdl-navigation__link" href="">
+            <!-- <i class="fas fa-hand-holding-usd"></i> -->
+            <i class="fas fa-dollar-sign"></i>
+            Multas</a>
+        <a class="mdl-navigation__link" href="">
+            <i class="fas fa-clock"></i>
+            Horarios</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+      <div class="page-content">
+        <!-- Your content goes here -->
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+    </div>
+ 
+ 
+ 
 
-<router-outlet></router-outlet>
+  
