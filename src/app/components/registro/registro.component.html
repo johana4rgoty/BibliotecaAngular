@@ -1,3 +1,27 @@
 <p>
   registro works!
 </p>
+
+<div class="example-container">
+    <mat-form-field>
+        <input name="customer" matInput placeholder="Customer Name" value=""  required>
+        <mat-error *ngIf="name.touched && name.invalid">
+        Name is required
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+        <input name=" email" matInput type="email" placeholder="Email" value="" 
+        required email>
+        <mat-error >
+        A valid email is required
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+        <input name="phone" matInput type="password" placeholder="Contraseña" value="" 
+        minlength="7" >
+        <mat-error >
+        Contraseña is required
+        </mat-error>
+    
+        </mat-form-field>
+  </div>

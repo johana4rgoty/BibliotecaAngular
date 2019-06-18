@@ -1,4 +1,6 @@
+import { FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-registro',
