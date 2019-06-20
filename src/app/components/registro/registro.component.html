@@ -1,27 +1,46 @@
 <p>
-  registro works!
+  registro works!jjjjjj
 </p>
+<div class="container">
+  <form>
+    <mat-card>
+      <mat-card-header clas="titulo-prinicpal">
+        <h2>Crear Usuarios de la Biblioteca:</h2>
+      </mat-card-header>
 
-<div class="example-container">
-    <mat-form-field>
-        <input name="customer" matInput placeholder="Customer Name" value=""  required>
-        <mat-error *ngIf="name.touched && name.invalid">
-        Name is required
-        </mat-error>
-        </mat-form-field>
+
+      <div class="example-container">
+
         <mat-form-field>
-        <input name=" email" matInput type="email" placeholder="Email" value="" 
-        required email>
-        <mat-error >
-        A valid email is required
-        </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-        <input name="phone" matInput type="password" placeholder="Contraseña" value="" 
-        minlength="7" >
-        <mat-error >
-        Contraseña is required
-        </mat-error>
-    
-        </mat-form-field>
-  </div>
+          <input name="user" matInput placeholder="Nombre Usario" value="" required>    
+          <mat-error *ngIf="name.touched && name.invalid">Nombre es requerido</mat-error>       
+            </mat-form-field>
+        
+            <mat-form-field>
+                <input matInput placeholder="Enter your email" [formControl]="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                  </button>
+                </mat-form-field>
+        {{customer | json}}
+
+
+      </div>
+
+
+
+
+      <mat-card-actions>
+        <button type="button" mat-button>Delete</button>
+        <button type="button" mat-button>Cancel</button>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
+
+
