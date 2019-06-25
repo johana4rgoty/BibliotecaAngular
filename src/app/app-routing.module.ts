@@ -1,15 +1,19 @@
+import { DialogRreservaComponent } from './components/dialog-rreserva/dialog-rreserva.component';
+import { UserComponent } from './components/user/user.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { BibliotecaComponent } from './components/biblioteca/biblioteca.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ReservaComponent } from './components/reserva/reserva.component';
+import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 
 
 
 const routes: Routes = [
   {
      path: '',
-     component: InicioComponent    
+     component: BibliotecaComponent    
   },
   {
     path: 'registro',
@@ -18,6 +22,22 @@ const routes: Routes = [
   {
     path: 'biblioteca',
     component: BibliotecaComponent
+  },
+  {
+    path: 'user',
+    component: UserComponent
+  },
+  {
+    path: 'reserva',
+    component: ReservaComponent
+  },
+  {
+    path: 'dialog-reserva',
+    component: DialogRreservaComponent
+  },
+  {
+    path: 'iniciar-sesion',
+    component: IniciarSesionComponent
   }
 
 

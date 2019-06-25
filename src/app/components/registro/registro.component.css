@@ -1,5 +1,8 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+.container{
+  margin-top: 20px;
+}
 .example-container {
     display: flex;
     flex-direction: column;

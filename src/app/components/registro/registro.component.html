@@ -1,7 +1,7 @@
-<p>
-  registro works!jjjjjj
-</p>
-<div class="container">
+
+<h1>registro</h1>
+
+ <div class="container">
   <form>
     <mat-card>
       <mat-card-header clas="titulo-prinicpal">
@@ -10,12 +10,18 @@
 
 
       <div class="example-container">
-
         <mat-form-field>
-          <input name="user" matInput placeholder="Nombre Usario" value="" required>    
-          
-            </mat-form-field>
-        
+          <input name="user" matInput placeholder="Nombre Usario" value=""  required>          
+            </mat-form-field> 
+         
+            <!-- <mat-form-field>
+                <input name="customer" matInput placeholder="Customer Name" value="" [(ngModel)]="customer.name" required
+                #name="ngModel">
+                <mat-error *ngIf="name.touched && name.invalid">
+                Name is required
+                </mat-error>
+                </mat-form-field> -->
+
             <mat-form-field>
                 <input matInput placeholder="Enter your email" [formControl]="email" required>
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
@@ -26,21 +32,17 @@
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
-        {{customer | json}}
+        {{user| json}}
 
 
       </div>
-
-
-
-
       <mat-card-actions>
-        <button type="button" mat-button>Delete</button>
-        <button type="button" mat-button>Cancel</button>
-        <button type="submit" mat-raised-button color="primary">Save</button>
+        <button type="button" mat-button (click)="delete()" >Delete</button>
+        <button type="button" mat-button (click)="cancel()">Cancel</button>
+        <button type="submit" mat-raised-button color="primary" >Save</button>
       </mat-card-actions>
     </mat-card>
   </form>
 </div>
 
-
+ 

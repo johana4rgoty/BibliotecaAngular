@@ -1,9 +1,12 @@
+import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BsDropdownModule } from 'ngx-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
 import {
   MatIconModule,
   MatSelectModule,
@@ -24,8 +27,18 @@ import { BibliotecaComponent } from './components/biblioteca/biblioteca.componen
 import { RegistroComponent } from './components/registro/registro.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { UserComponent } from './components/user/user.component';
+import { ReservaComponent } from './components/reserva/reserva.component';
+import { DialogRreservaComponent } from './components/dialog-rreserva/dialog-rreserva.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 
 
+
+export const ROUTES = [
+  { path: 'registro', component: RegistroComponent },
+  // { path: 'dialog-rreserva', Component: DialogRreservaComponent}
+
+];
 
 
 @NgModule({
@@ -34,17 +47,22 @@ import { UserComponent } from './components/user/user.component';
     InicioComponent,
     BibliotecaComponent,
     RegistroComponent,
-    UserComponent
+    UserComponent,
+    ReservaComponent,
+    DialogRreservaComponent,
+    IniciarSesionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    // NgbModalModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,   
     MatFormFieldModule,  
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
+    RouterModule.forRoot(ROUTES),
     BrowserAnimationsModule,
     CovalentLayoutModule,
     CovalentStepsModule,
@@ -58,9 +76,11 @@ import { UserComponent } from './components/user/user.component';
     MatSlideToggleModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
    
   ],
+  entryComponents:[DialogRreservaComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

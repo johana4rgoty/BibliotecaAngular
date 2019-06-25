@@ -1,0 +1,74 @@
+<p>
+  reserva works!
+</p>
+
+<div class="container">
+  <form>
+    <mat-card>
+      <mat-card-header clas="titulo-prinicpal">
+        <h2>Reserva tuLibro:</h2>
+      </mat-card-header>
+
+
+      <div class="example-container">
+
+        <ol>
+
+          <!-- <li>
+              <mat-form-field>
+                <input matInput name="name" [(ngModel)]="name" placeholder="Bienvenido Usuario">
+              </mat-form-field>
+            </li> -->
+          <li>
+            <mat-form-field>
+              <input name="book" [(ngModel)]="book" matInput placeholder="Libro Reserva" value="" required>
+            </mat-form-field>
+          </li>
+
+          <li>
+
+            <mat-form-field>
+              <input matInput [matDatepicker]="picker2" placeholder="Fecha Reserva" [formControl]="serializedDate">
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <div class="example-events">
+              <div *ngFor="let e of events">{{e}}</div>
+            </div>
+          </li>
+
+          <li>
+            <mat-form-field>
+              <mat-label>Dias de reserva</mat-label>
+              <select matNativeControl [(ngModel)]="selectedReserva" name="day">
+                <option value="" selected></option>
+                <option *ngFor="let day of days" [value]="day.value">
+                  {{day.viewValue}}
+                </option>
+              </select>
+            </mat-form-field>
+            <!-- <p> Reserva por: {{selectedReserva}} </p> -->
+          </li>
+          <li>
+            <button mat-raised-button (click)="openDialog()">Verificar Informacion</button>
+          </li>
+          <li *ngIf="animal">
+            You chose: <i>{{animal}}</i>
+          </li>
+        </ol>
+
+
+
+
+        {{user| json}}
+
+
+      </div>
+      <mat-card-actions>
+        <button type="button" mat-button (click)="delete()">Delete</button>
+        <button type="button" mat-button (click)="cancel()">Cancel</button>
+        <button type="submit" mat-raised-button color="primary">Save</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>
