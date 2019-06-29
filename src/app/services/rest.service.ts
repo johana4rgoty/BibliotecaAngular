@@ -28,6 +28,9 @@ export class RestService {
 
     return this.http.get<T>(url);
   }
+  getAll<T>(){
+    return this.http.get<T>(this.url );
+  }
 
   get<T>(id: number) {
     return this.http.get<T>(this.url + '/' + id);

@@ -27,10 +27,21 @@ const routes: Routes = [
     path: 'user',
     component: UserComponent
   },
+  { path: 'user/:userId', 
+  component: UserComponent },
+  {
+    path: 'user/create',
+    component: RegistroComponent
+  },
+  { path: 'registro/:userId/edit',
+   component: RegistroComponent 
+  },
+
   {
     path: 'reserva',
     component: ReservaComponent
   },
+
   {
     path: 'dialog-reserva',
     component: DialogRreservaComponent

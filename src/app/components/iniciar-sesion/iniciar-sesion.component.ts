@@ -7,6 +7,7 @@ import {MatNativeDateModule, MatDatepickerModule} from '@angular/material';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { DialogRreservaComponent } from '../dialog-rreserva/dialog-rreserva.component';
+import { User } from 'src/app/services/user';
 
 
 
@@ -24,7 +25,7 @@ export class IniciarSesionComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<IniciarSesionComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData, public user: User) {}
 
    onNoClick(): void {
      this.dialogRef.close();

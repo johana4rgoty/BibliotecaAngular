@@ -3,7 +3,7 @@ import { RestService } from './rest.service';
 
 @Injectable()
 export class UserService extends RestService {
-  resource: string = '/customers';
+  resource: string = '/users';
   
 }
 

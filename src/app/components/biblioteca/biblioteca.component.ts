@@ -4,7 +4,7 @@ import { UserService} from '../../services/user.service'
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import { NgModule } from '@angular/core';
 //para realizar el crud de registro con servidor
-import { User } from '../../services/User';
+import { User } from '../../services/user';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router, Params } from '@angular/router'
 import { TdLoadingService, TdDialogService} from '@covalent/core';

@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { Component, Inject, OnInit } from '@angular/core';
 import { DialogRreservaComponent } from './components/dialog-rreserva/dialog-rreserva.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
+import { UserService } from './services/user.service';
 
 
 
@@ -15,36 +16,14 @@ export interface DialogData {
 }
 
 
-@NgModule({
-  imports: [
-    FormsModule
-  ],
-  exports: [
-    IniciarSesionComponent],
-  entryComponents: [
-    IniciarSesionComponent,
-    AppComponent,
-    BibliotecaComponent,
-    ReservaComponent,
-    DialogRreservaComponent],
-  // declarations: [DialogRreservaComponent],  
-
-  declarations: [
-    AppComponent,
-    IniciarSesionComponent,
-    DialogRreservaComponent
-  ],
-
-  providers: [],
-  bootstrap: [AppComponent]
-
-})
-
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[
+    UserService
+  ]
 })
 
 export class AppComponent {
@@ -53,7 +32,7 @@ export class AppComponent {
   name: string;
   constructor(public dialog: MatDialog) { }
   ngOnInit(): void {
-    this.login();
+    // this.login();
   }
 
   visible = false;
@@ -70,7 +49,7 @@ export class AppComponent {
      
     }
 
-
+    // https://es.stackoverflow.com/questions/182357/error-staticinjectorerrorappmodulehttpclient
 
 
 
