@@ -1,3 +1,60 @@
-<p>
+ <p>
   user works!
 </p>
+ <!-- <button *tdLoading="'users'">
+  <mat-list>
+    <h3 mat-subheader>Recent Invoices</h3>
+    <mat-list-item *ngFor="let user of users" >
+      <mat-icon mat-list-icon>user</mat-icon>
+      <h4 mat-line>{{user.name}}</h4>
+      <p mat-line> {{user.email}} </p>
+    </mat-list-item>
+  </mat-list>
+
+</button>  -->
+
+
+<mat-card *tdLoading="'user'">
+    <table class="ui compact celled definition table">
+        <thead>
+          <tr>
+          
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>PHONE</th>
+            <th>PASS</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.pass }}</td>
+            <td class="collapsing">
+                <button class="" routerLink="/registro/{{user.id}}/edit">
+                  <i class="fas fa-user-edit"></i>
+                </button>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot class="full-width">
+          <tr>
+            <th></th>
+            <th colspan="4">
+              <button class="ui right floated small primary labeled icon button" routerLink="/registro/create">
+                <i class="fas fa-user-plus"></i>Add User
+              </button>            
+              <button class="ui small button" (click)="approveAll($event)">
+                Approve All
+              </button>
+            </th>
+          </tr>
+        </tfoot>
+      </table>   
+
+</mat-card>
+
+ 

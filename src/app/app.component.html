@@ -30,7 +30,7 @@
       </button>
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu dropdown-menu-right"
               role="menu" aria-labelledby="button-basic">
-            <li role="menuitem"><a class="dropdown-item" href="#">Iniciar Sesion</a></li>
+            <li role="menuitem"><a class="dropdown-item"  (click)="login()" href="#">Iniciar Sesion</a></li>
             <li role="menuitem"><a class="dropdown-item" href="#">user</a></li>
             <li role="menuitem"><a class="dropdown-item" href="#">Informacion</a></li>
             <li class="divider dropdown-divider"></li>
@@ -62,10 +62,10 @@
         <a class="mdl-navigation__link" [routerLink]="['/registro']">
             <i class="fas fa-user-plus"></i>
             Registrarse</a>
-        <a class="mdl-navigation__link" [routerLink]="['/']">
+        <a class="mdl-navigation__link" [routerLink]="['/reserva']">
             <i class="fas fa-bookmark"></i>
             Reservas</a>
-        <a class="mdl-navigation__link" [routerLink]="['/']">
+        <a class="mdl-navigation__link" [routerLink]="['/user']">
             <i class="fas fa-info-circle"></i>
             Informacion</a>
         <a class="mdl-navigation__link"[routerLink]="['/']">

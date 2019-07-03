@@ -1,8 +1,8 @@
-<p>
-  registro works!jjjjjj
-</p>
-<div class="container">
-  <form>
+
+<h1>registro</h1>
+
+ <div class="container" *tdLoading="'user'">
+  <form *ngIf="user" #form="ngForm" (ngSubmit)="save()">
     <mat-card>
       <mat-card-header clas="titulo-prinicpal">
         <h2>Crear Usuarios de la Biblioteca:</h2>
@@ -10,37 +10,49 @@
 
 
       <div class="example-container">
-
-        <mat-form-field>
-          <input name="user" matInput placeholder="Nombre Usario" value="" required>    
-          
-            </mat-form-field>
         
+         
             <mat-form-field>
-                <input matInput placeholder="Enter your email" [formControl]="email" required>
+                <input name="name" matInput placeholder="User Name" value="" [(ngModel)]="user.name" required
+                #name="ngModel">
+                <mat-error *ngIf="name.touched && name.invalid">
+                Name is required
+                </mat-error>
+                </mat-form-field>
+
+            <mat-form-field>
+                <input name="email" matInput placeholder="Enter your email" [formControl]="email"  [(ngModel)]="user.email" required>
                 <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
-              <mat-form-field>
-                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+              
+                <mat-form-field>
+                  <input name="phone" matInput type="tel" placeholder="Phone" value="" [(ngModel)]="user.phone"
+                    minlength="7" #phone="ngModel">
+                  <mat-error *ngIf="phone.touched && phone.errors?.required">
+                    Phone number is required
+                  </mat-error>
+                  <mat-error *ngIf="phone.touched && phone.errors?.minlength">
+                    Not a valid phone number
+                  </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input  name="pass" matInput placeholder="Enter your password" [(ngModel)]="user.pass"  [type]="hide ? 'password' : 'text'">
                   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                   </button>
                 </mat-form-field>
-        {{customer | json}}
+        {{user| json}}
 
 
       </div>
-
-
-
-
       <mat-card-actions>
-        <button type="button" mat-button>Delete</button>
-        <button type="button" mat-button>Cancel</button>
-        <button type="submit" mat-raised-button color="primary">Save</button>
+        <button type="button" mat-button (click)="delete()" *ngIf="user.id">Delete</button>
+        <button type="button" mat-button (click)="cancel()">Cancel</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="form.invalid">Save</button>
       </mat-card-actions>
     </mat-card>
   </form>
 </div>
 
-
+ 

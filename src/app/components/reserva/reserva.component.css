@@ -1,0 +1,28 @@
+.container{
+    margin-top: 20px;
+  }
+  .example-container {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      align-content: center;
+      align-items: center;
+    }
+    
+    .example-container > * {
+      width: 50%;
+      text-align: left;
+      font-size: 1.5em;
+    }
+    .titulo-prinicpal{
+      font-size: 1em;
+      text-align: center;
+    }
+    .titulo-prinicpal h2{
+      text-align: center;
+      align-content: center;
+    }
+    h2{
+      align-content: center;
+    }
+  
