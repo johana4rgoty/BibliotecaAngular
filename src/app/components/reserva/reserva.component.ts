@@ -22,17 +22,17 @@ import * as _moment from 'moment';
 import {default as _rollupMoment, Moment} from 'moment';
 const moment = _rollupMoment || _moment;
 
-// export const MY_FORMATS = {
-//   parse: {
-//     dateInput: 'DD/MM/YYYY',
-//   },
-//   display: {
-//     dateInput: 'DD/MM/YYYY',
-//     monthYearLabel: 'DD MMM YYYY',
-//     dateA11yLabel: 'LL',
-//     monthYearA11yLabel: 'DD MMMM YYYY',
-//   },
-// };
+ export const MY_FORMATS = {
+   parse: {
+     dateInput: 'DD/MM/YYYY',
+   },
+   display: {
+     dateInput: 'DD/MM/YYYY',
+     monthYearLabel: 'DD MMM YYYY',
+     dateA11yLabel: 'LL',
+     monthYearA11yLabel: 'DD MMMM YYYY',
+   },
+ };
 
 
 //para crear el json tiene dia(viewValue) es decir el nro q se va amostrar y validacion en selected reserva sale lo del value osea el q el escoja day.value
@@ -87,31 +87,30 @@ export class ReservaComponent implements OnInit {
   //date del dateReseva
   events: string[] = [];
   //date del dateEntrega
-  // date2 = new FormControl(moment());
-  date  =  new  FormControl(new  Date());
+  
+  date  =  new  FormControl(new Date());
+  
+  
+  // date2 = new Date(this.date.value.getFullYear(),this.date.value.getMonth(),this.date.value.getDay());
+  
+  
 
   //dateReserva
   addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
-    let dia: number = event.value.getDay() 
+    let dia: number = event.value.getDate() 
     let select:number = parseInt(this.reservaForm.get('selectedReserva').value)
     let diaEntrega:number = dia+select
-    
+    let date2 = new Date(event.value.getFullYear(),event.value.getMonth(),event.value.getDate()+select)
+    let date3= new FormControl();
+    console.log(date2)
+    console.log(select)
     this.events.push(`${diaEntrega}`);
     // console.log(diaEntrega);
   }
   //dateReserva
-  // chosenYearHandler(normalizedYear: Moment) {
-  //   const ctrlValue = this.date.value;
-  //   ctrlValue.year(normalizedYear.year());
-  //   this.date.setValue(ctrlValue);
-  // }
-
-  // chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
-  //   const ctrlValue = this.date.value;
-  //   ctrlValue.month(normalizedMonth.month());
-  //   this.date.setValue(ctrlValue);
-  //   datepicker.close();
-  // }
+   
+   
+   
 
 
 
@@ -133,7 +132,7 @@ export class ReservaComponent implements OnInit {
         dateReserva: ['', Validators.required],
         selectedReserva: [1, Validators.required],
          //hours: ['', [Validators.required, HoursValidator]],
-        dateEntrega: ['', Validators.required],
+        dateEntrega: [999, Validators.required],
        
       });
      }
@@ -165,9 +164,9 @@ export class ReservaComponent implements OnInit {
   
        combineLatest(
          this.reservaForm.get('selectedReserva').valueChanges,
-         this.reservaForm.get('dateEntrega').valueChanges
-       ).subscribe(([selectedReserva = 5, dateEntrega = 0]) => {
-         this.dateN = selectedReserva;
+         this.reservaForm.get('dateReserva').valueChanges
+       ).subscribe(([selectedReserva = 0, dateEntrega = 0]) => {
+        //  this.dateN = selectedReserva+ dateEntrega;
        });
      }
   
@@ -222,9 +221,7 @@ export class ReservaComponent implements OnInit {
      {value: 'tres dias', viewValue: '3'}
    ];
    //calendario
-   //para crear el calendario
- date2 = new FormControl(new Date());
- serializedDate = new FormControl((new Date()).toISOString());
+  
 
 //   //btn abrir la model
 
