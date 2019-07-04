@@ -17,5 +17,77 @@
       "selectedReserva": "un dia",
       "dateEntrega": "2019-07-05T05:00:00.000Z"
     }
+  ],
+  "books": [
+    {
+      "titulo": "Ingeniería de métodos movimientos y tiempos",
+      "img": "img/ingenieria-de-metodos-9789587713428-ecoe.jpg",
+      "autor": "Luis Carlos Palacios",
+      "agno": "2012",
+      "isbn": "382736",
+      "disponibles": 4,
+      "categoria": [
+        "ingeniería"
+      ]
+    },
+    {
+      "titulo": "Matemática aplicada a la ingeniería química",
+      "img": "img/matematica_aplicada.jpg",
+      "autor": "Juan de Burgos Roman",
+      "agno": "2011",
+      "isbn": "978841521475",
+      "disponibles": 1,
+      "categoria": [
+        "ingeniería",
+        "química",
+        "matemática"
+      ]
+    },
+    {
+      "titulo": "Ingeniería de procesos y de Planta",
+      "img": "img/ingenieria_procesos.jpg",
+      "autor": "Luis Cuatrecasas",
+      "agno": "2017",
+      "isbn": "9788416904006",
+      "disponibles": 0,
+      "categoria": [
+        "ingeniería"
+      ]
+    },
+    {
+      "titulo": "Física para ciencias e ingeniería",
+      "img": "img/fisica_serway.jpg",
+      "autor": "Raymond A. Serway",
+      "agno": "2015",
+      "isbn": "9786075191997",
+      "disponibles": 7,
+      "categoria": [
+        "ingeniería",
+        "física"
+      ]
+    },
+    {
+      "titulo": "Química",
+      "img": "img/quimica_raymond.png",
+      "autor": "Raymond Chang",
+      "agno": "2016 ",
+      "isbn": "9786071513939 ",
+      "disponibles": 5,
+      "categoria": [
+        "química"
+      ]
+    },
+    {
+      "titulo": "Introducción al análisis de circuitos",
+      "img": "img/circuitos_boylestad.jpg",
+      "autor": "Robert Boylestad",
+      "agno": "2004",
+      "isbn": "9789702604488",
+      "disponibles": 2,
+      "categoria": [
+        "ingeniería",
+        "física"
+      ]
+    }
   ]
 }
