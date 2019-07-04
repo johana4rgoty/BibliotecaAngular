@@ -12,11 +12,16 @@
       <mat-card-content>
         <div class="example-container">
 
-          <mat-form-field>
+          <!-- <mat-form-field>
             <input name="user" class="input-name" matInput type="text" placeholder="User name" formControlName="userId">
             <mat-error *ngIf="reservaForm.get('userId').touched && reservaForm.get('userId').invalid">
             </mat-error>
-          </mat-form-field>
+          </mat-form-field> -->
+          <mat-form-field>
+          
+              <mat-option [value]="user.id" *ngFor="let user of users">Bienvenida {{user?.name}}</mat-option>
+              <input name="userId"  placeholder="UserName" matInput type="text" placeholder="userId"  formControlName="userId">
+            </mat-form-field>
 
           <mat-form-field>
             <input name="book" matInput type="text" placeholder="Book" formControlName="book">
@@ -25,7 +30,7 @@
             </mat-error>
           </mat-form-field>
           <mat-form-field>
-              <input matInput [matDatepicker]="picker" placeholder="dateReserva" formControlName="dateReserva">
+              <input matInput [matDatepicker]="picker" placeholder="dateReserva" formControlName="dateReserva"   (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
               <mat-error *ngIf="reservaForm.get('dateReserva').touched && reservaForm.get('dateReserva').invalid">
@@ -39,11 +44,12 @@
           <mat-form-field>
               <mat-label>Dias de reserva</mat-label>
               <select matNativeControl [(ngModel)]="selectedReserva"  name="day" formControlName="selectedReserva">
-                <option value="" selected></option>
-                <option *ngFor="let day of days" [value]="day.value">
+                <option value="1" selected></option>
+                <option *ngFor="let day of days" [value]="day.viewValue">
                   {{day.viewValue}}
                 </option>
               </select>
+              <!-- {{selectedReserva}} -->
             </mat-form-field>
 
           <mat-form-field>
@@ -54,6 +60,10 @@
                 Date is required
               </mat-error>
             </mat-form-field>
+            <div class="total">
+                DateNew  : {{dateN }}
+                <div *ngFor="let e of events">{{e}}</div>
+              </div>
         </div>
 
       </mat-card-content>

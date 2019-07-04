@@ -1,6 +1,7 @@
 import { UserService } from './../../services/user.service';
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog'
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 import { DialogRreservaComponent } from '../dialog-rreserva/dialog-rreserva.component';
 import { FormControl, Validators, FormsModule, FormBuilder, FormGroup, } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -12,11 +13,26 @@ import { ReservaService } from './../../services/reserva.service'
 //import { CustomersService } from '../services/customers.service';
 import { map } from 'rxjs/operators';
 import { combineLatest } from 'rxjs';
-//import { HoursValidator } from '../validators/hours.validator';
+//cambiar la fecha
+import {MomentDateAdapter} from '@angular/material-moment-adapter';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import {MatDatepicker} from '@angular/material/datepicker';
+import * as _moment from 'moment';
+// tslint:disable-next-line:no-duplicate-imports
+import {default as _rollupMoment, Moment} from 'moment';
+const moment = _rollupMoment || _moment;
 
-
-// <form #f="ngForm" (ngSubmit)="onSubmit(f)"> ...
-// <input **name="firstName" ngModel** placeholder="Enter your first name">
+// export const MY_FORMATS = {
+//   parse: {
+//     dateInput: 'DD/MM/YYYY',
+//   },
+//   display: {
+//     dateInput: 'DD/MM/YYYY',
+//     monthYearLabel: 'DD MMM YYYY',
+//     dateA11yLabel: 'LL',
+//     monthYearA11yLabel: 'DD MMMM YYYY',
+//   },
+// };
 
 
 //para crear el json tiene dia(viewValue) es decir el nro q se va amostrar y validacion en selected reserva sale lo del value osea el q el escoja day.value
@@ -45,20 +61,57 @@ export interface DialogData {
 @Component({
   selector: 'app-reserva',
   templateUrl: './reserva.component.html',
-  styleUrls: ['./reserva.component.css']
+  styleUrls: ['./reserva.component.css'],
+  // providers: [
+  //   // `MomentDateAdapter` can be automatically provided by importing `MomentDateModule` in your
+  //   // application's root module. We provide it at the component level here, due to limitations of
+  //   // our example generation script.
+  //   {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
+
+  //   {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+  // ],
 })
 export class ReservaComponent implements OnInit {
   //verifivar btn  para colocar los ngmodel
   //name: string;
   //book: string;
-  selectedReserva: string;
+  // selectedReserva:string;
   reserva: Reserva;
   //para usar formulario re
   reservaForm: FormGroup;
+  select
   user: User;
   users: User[];
   reservas : Reserva[];
-  //total = 0;
+  dateN = 0;
+  //date del dateReseva
+  events: string[] = [];
+  //date del dateEntrega
+  // date2 = new FormControl(moment());
+  date  =  new  FormControl(new  Date());
+
+  //dateReserva
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>) {
+    let dia: number = event.value.getDay() 
+    let select:number = parseInt(this.reservaForm.get('selectedReserva').value)
+    let diaEntrega:number = dia+select
+    
+    this.events.push(`${diaEntrega}`);
+    // console.log(diaEntrega);
+  }
+  //dateReserva
+  // chosenYearHandler(normalizedYear: Moment) {
+  //   const ctrlValue = this.date.value;
+  //   ctrlValue.year(normalizedYear.year());
+  //   this.date.setValue(ctrlValue);
+  // }
+
+  // chosenMonthHandler(normalizedMonth: Moment, datepicker: MatDatepicker<Moment>) {
+  //   const ctrlValue = this.date.value;
+  //   ctrlValue.month(normalizedMonth.month());
+  //   this.date.setValue(ctrlValue);
+  //   datepicker.close();
+  // }
 
 
 
@@ -75,10 +128,10 @@ export class ReservaComponent implements OnInit {
 
       this.reservaForm = this.formBuilder.group({
         id: [''],        
-        userId: [''],
+        userId: [0],
         book: ['', Validators.required],
         dateReserva: ['', Validators.required],
-        selectedReserva: [0, Validators.required],
+        selectedReserva: [1, Validators.required],
          //hours: ['', [Validators.required, HoursValidator]],
         dateEntrega: ['', Validators.required],
        
@@ -110,12 +163,12 @@ export class ReservaComponent implements OnInit {
          }
        });
   
-    //   combineLatest(
-    //     this.invoiceForm.get('rate').valueChanges,
-    //     this.invoiceForm.get('hours').valueChanges
-    //   ).subscribe(([rate = 0, hours = 0]) => {
-    //     this.total = rate * hours;
-    //   });
+       combineLatest(
+         this.reservaForm.get('selectedReserva').valueChanges,
+         this.reservaForm.get('dateEntrega').valueChanges
+       ).subscribe(([selectedReserva = 5, dateEntrega = 0]) => {
+         this.dateN = selectedReserva;
+       });
      }
   
      save() {
@@ -175,16 +228,16 @@ export class ReservaComponent implements OnInit {
 
 //   //btn abrir la model
 
-   openDialog(): void {
-     const dialogRef = this.dialog.open(DialogRreservaComponent, {
-       width: '250px',
-       data: {selectedReserva: this.selectedReserva}
-     });
+  //  openDialog(): void {
+  //    const dialogRef = this.dialog.open(DialogRreservaComponent, {
+  //      width: '250px',
+  //      data: {selectedReserva: this.selectedReserva}
+  //    });
 
-     dialogRef.afterClosed().subscribe(result => {
-       console.log('The dialog was closed');
-       this.selectedReserva = result;
-     });
-   }
+  //    dialogRef.afterClosed().subscribe(result => {
+  //      console.log('The dialog was closed');
+  //      this.selectedReserva = result;
+  //    });
+  //  }
 
 }

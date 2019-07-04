@@ -2,7 +2,7 @@
   "users": [
     {
       "id": 2,
-      "name": "d",
+      "name": "johana",
       "email": "mscoon0@hibu.com",
       "phone": "12313423",
       "pass": "a"
@@ -11,7 +11,7 @@
   "reservas": [
     {
       "id": 1,
-      "userId": "Johana",
+      "userId": 2,
       "book": "Radio",
       "dateReserva": "2019-07-04T05:00:00.000Z",
       "selectedReserva": "un dia",
