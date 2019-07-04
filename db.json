@@ -6,13 +6,16 @@
       "email": "mscoon0@hibu.com",
       "phone": "12313423",
       "pass": "a"
-    },
+    }
+  ],
+  "reservas": [
     {
-      "email": "ejargoty@unicauca.edu.co",
-      "name": "c",
-      "pass": "c",
-      "phone": "3122058268",
-      "id": 5
+      "id": 1,
+      "userId": "Johana",
+      "book": "Radio",
+      "dateReserva": "2019-07-04T05:00:00.000Z",
+      "selectedReserva": "un dia",
+      "dateEntrega": "2019-07-05T05:00:00.000Z"
     }
   ]
 }

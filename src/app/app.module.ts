@@ -34,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
 import {MatTableModule} from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
+import { ReservasComponent } from './components/reservas/reservas.component';
 
 
 
@@ -60,7 +61,8 @@ export const ROUTES = [
     ReservaComponent,
     DialogRreservaComponent,
     IniciarSesionComponent,
-    LoginComponent
+    LoginComponent,
+    ReservasComponent
   ],
   imports: [
     BrowserModule,

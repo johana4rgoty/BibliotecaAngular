@@ -1,0 +1,46 @@
+<p>
+  reservas works!
+</p>
+<mat-card *tdLoading="'reserva'">
+  <table class="ui compact celled definition table">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>userId</th>
+        <th>DateReserva</th>
+        <th>selectReserva</th>
+        <th>DateEntrega</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reserva of reservas">
+        <td>{{ reserva.book }}</td>
+        <td>{{ reserva.userId }}</td>
+        <td>{{ reserva.dateReserva }}</td>
+        <td>{{ reserva.selectedReserva}}</td>
+        <td>{{ reserva.dateEntrega }}</td>
+        <td class="collapsing">
+          <a class='btn btn-info btn-xs' routerLink="/reserva/{{reserva.id}}/edit"><span
+              class="glyphicon glyphicon-edit"></span>Edit</a>
+          <a class="btn btn-danger btn-xs" (click)="delete()" *ngIf="reserva.id"><span
+              class="glyphicon glyphicon-remove"></span>Supr</a>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot class="full-width">
+      <tr>
+        <th></th>
+        <th colspan="4">
+          <button class="class='btn btn-info btn-xs" routerLink="/reserva/create">
+            <i class="fas fa-user-plus"></i>Add
+          </button>
+          <!-- <button class="ui small button">
+            Approve All
+          </button> -->
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+
+</mat-card>

@@ -7,6 +7,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { DialogRreservaComponent } from './components/dialog-rreserva/dialog-rreserva.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { UserService } from './services/user.service';
+import { ReservaService } from './services/reserva.service';
 
 
 
@@ -22,7 +23,8 @@ export interface DialogData {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers:[
-    UserService
+    UserService,
+    ReservaService
   ]
 })
 

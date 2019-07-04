@@ -1,40 +1,63 @@
-<h2 mat-dialog-title>Bienvenido {{data.name}}</h2>
-<div mat-dialog-content>
-  
-  <mat-form-field>
-      <!-- <p>Libro reservado</p> -->
+<div *tdLoading="'reserva'">
+    <h3 mat-dialog-title>Bienvenido {{reserva.userId}}</h3>
+    <div mat-dialog-content>
+        <mat-list *ngIf="reserva">
+        <h3 mat-subheader>reserva ID: {{reserva.id}}</h3>
+        <mat-list-item>
+          <mat-icon mat-list-icon>perm_identity</mat-icon>
+          <h4 mat-line>{{reserva.book}}</h4>
+          <p mat-line>Customer</p>
+        </mat-list-item>    
+        <mat-list-item>
+          <mat-icon mat-list-icon>email</mat-icon>
+          <h4 mat-line>{{reserva.dateReserva}}</h4>
+          <p mat-line>Email</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>phone</mat-icon>
+          <h4 mat-line>{{reserva.dateEntrega}}</h4>
+          <p mat-line>Phone</p>
+        </mat-list-item>
+      </mat-list>  
+    
+    
+      
+    <div mat-dialog-actions>
+      <button mat-button (click)="onNoClick()">No Thanks</button>
+      <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+    </div>
+
+</div>
+
+<!-- <mat-form-field>
+    !-- <p>Libro reservado</p> --
     <input placeholder="Libro reservado" matInput [(ngModel)]="data.book">
   </mat-form-field>
-  <mat-form-field>   
+  <mat-form-field>
     <input placeholder="Dias reservado" matInput [(ngModel)]="data.selectedReserva">
   </mat-form-field>
-  <div>      
-        
-        <mat-form-field>
-          <input matInput [matDatepicker]="picker3" placeholder="Fecha Actual" [value]="date.value" (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
-          <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-          <mat-datepicker #picker3></mat-datepicker>
-        </mat-form-field>
+  <div>
 
-        <!-- <mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker3" placeholder="Fecha Actual" [value]="date.value"
+        (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+
+    !-- <mat-form-field>
   <input matInput [matDatepicker]="dp" placeholder="Moment.js datepicker" [formControl]="date">
   <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
   <mat-datepicker #dp></mat-datepicker>
-</mat-form-field> -->
+</mat-form-field> --
 
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker2" placeholder="Fecha De Entrega"  [formControl]="serializedDate">
-            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-            <mat-datepicker #picker2></mat-datepicker>
-          </mat-form-field>
-          <div class="example-events">
-            <div *ngFor="let e of events">{{e}}</div>
-          </div>
-          
-        
-  </div>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker2" placeholder="Fecha De Entrega" [formControl]="serializedDate">
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+    <div class="example-events">
+      <div *ngFor="let e of events">{{e}}</div>
+    </div>
+    </div>
+    </div> -->

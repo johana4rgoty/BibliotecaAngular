@@ -7,6 +7,7 @@ import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { IniciarSesionComponent } from './components/iniciar-sesion/iniciar-sesion.component';
+import { ReservasComponent } from './components/reservas/reservas.component';
 
 
 
@@ -30,18 +31,12 @@ const routes: Routes = [
   { path: 'user/:userId', 
   component: UserComponent },
   {
-    path: 'user/create',
+    path: 'registro/create',
     component: RegistroComponent
   },
   { path: 'registro/:userId/edit',
    component: RegistroComponent 
-  },
-
-  {
-    path: 'reserva',
-    component: ReservaComponent
-  },
-
+  }, 
   {
     path: 'dialog-reserva',
     component: DialogRreservaComponent
@@ -49,9 +44,28 @@ const routes: Routes = [
   {
     path: 'iniciar-sesion',
     component: IniciarSesionComponent
+  },
+  {
+    path: 'reservas',
+    component: ReservasComponent
+  },  
+  { path: 'reservas/:reservaId', 
+  component: ReservasComponent 
+},
+  { path: 'reserva',
+   component: ReservaComponent 
+  },
+  {
+    path: 'reserva/create',
+    component: ReservaComponent
+  },
+  { path: 'reserva/:reservaId', 
+  component: DialogRreservaComponent 
+ }, 
+  { path: 'reserva/:reservaId/edit',
+   component: ReservaComponent 
   }
-
-
+ 
 ];
 
 @NgModule({

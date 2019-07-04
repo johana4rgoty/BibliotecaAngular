@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { DialogData } from '../reserva/reserva.component';
@@ -6,6 +7,12 @@ import {MatDatepickerInputEvent, MatDatepicker} from '@angular/material/datepick
 import {MatNativeDateModule, MatDatepickerModule} from '@angular/material';
 import {MAT_MOMENT_DATE_FORMATS, MomentDateAdapter} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { TdLoadingService } from '@covalent/core';
+import { ReservaService } from './../../services/reserva.service';
+import { Reserva } from '../../services/reserva';
+import {map} from 'rxjs/operators';
+import {switchMap} from 'rxjs/operators';
 //import * as _moment from 'moment';
 //import * as moment from 'moment';
 // tslint:disable-next-line:no-duplicate-imports
@@ -16,29 +23,37 @@ import * as _moment from 'moment';
 const moment = _moment;
 
 
-
-
-
 @Component({
   selector: 'app-dialog-rreserva',
   templateUrl: './dialog-rreserva.component.html',
   styleUrls: ['./dialog-rreserva.component.css'],
-  providers: [
-    // `MomentDateAdapter` and `MAT_MOMENT_DATE_FORMATS` can be automatically provided by importing
-    // `MatMomentDateModule` in your applications root module. We provide it at the component level
-    // here, due to limitations of our example generation script.
+  providers: [    
     {provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE]},
     {provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS},
   ],
 })
-export class DialogRreservaComponent {
+export class DialogRreservaComponent implements OnInit{
   // @ViewChild(MatDatepicker) datepicker: MatDatepicker<Date>;
-
+  reservas: Reserva;
   constructor( 
+    private reservaService: ReservaService,
+    private loadingService: TdLoadingService,
+    private route: ActivatedRoute,
     public dialogRef: MatDialogRef<DialogRreservaComponent>,
     @Inject(MAT_DIALOG_DATA)
-     public data: DialogData
+    public data: DialogData
     )  { }
+
+    ngOnInit() {
+      this.loadingService.register('reservas');
+      this.route.params
+        .pipe(map((params: Params) => params.reservasId))
+        .pipe(switchMap(reservasId => this.reservaService.get<Reserva>(reservasId)))
+        .subscribe(customer => {
+          this.reservas = customer;
+          this.loadingService.resolve('reservas');
+        });
+    }
 
  
   onNoClick(): void {

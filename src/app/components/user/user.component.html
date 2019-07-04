@@ -33,10 +33,11 @@
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
             <td>{{ user.pass }}</td>
-            <td class="collapsing">
-                <button class="" routerLink="/registro/{{user.id}}/edit">
-                  <i class="fas fa-user-edit"></i>
-                </button>
+            <td class="collapsing">                
+                <a class='btn btn-info btn-xs' routerLink="/registro/{{user.id}}/edit"><span
+                  class="glyphicon glyphicon-edit"></span> Edit</a>
+                  <a class="btn btn-danger btn-xs" (click)="delete()" *ngIf="user.id"><span class="glyphicon glyphicon-remove"></span>Supr</a>
+                  
             </td>
           </tr>
         </tbody>
@@ -44,12 +45,12 @@
           <tr>
             <th></th>
             <th colspan="4">
-              <button class="ui right floated small primary labeled icon button" routerLink="/registro/create">
-                <i class="fas fa-user-plus"></i>Add User
+              <button class="class='btn btn-info btn-xs" routerLink="/registro/create">
+                <i class="fas fa-user-plus"></i>Add
               </button>            
-              <button class="ui small button" (click)="approveAll($event)">
+              <!-- <button class="ui small button" (click)="approveAll($event)">
                 Approve All
-              </button>
+              </button> -->
             </th>
           </tr>
         </tfoot>

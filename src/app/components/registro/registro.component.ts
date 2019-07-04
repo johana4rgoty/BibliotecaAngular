@@ -4,9 +4,8 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import { NgModule } from '@angular/core';
 //para realizar el crud de registro con servidor
 import { User } from '../../services/user';
-import { Customer} from './../../services/Customer'
 import { map } from 'rxjs/operators';
-import { ActivatedRoute, Router, Params } from '@angular/router'
+import { ActivatedRoute, Router, Params } from '@angular/router';
 import { TdLoadingService, TdDialogService} from '@covalent/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -99,13 +98,13 @@ export class RegistroComponent implements OnInit {
           this.userService.delete(this.user.id).subscribe(response=>{
             this.loadingService.resolve('user');
             this.user.id= null;
-            this.cancelar();
+            this.cancel();
           });
         }
       });
 
   }
-  cancelar(){
+  cancel(){
       if(this.user.id){
         this.router.navigate(['/user', this.user.id]);
       }else{
