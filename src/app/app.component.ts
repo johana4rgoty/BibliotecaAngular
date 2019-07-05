@@ -8,6 +8,7 @@ import { DialogRreservaComponent } from './components/dialog-rreserva/dialog-rre
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { UserService } from './services/user.service';
 import { ReservaService } from './services/reserva.service';
+import { BookService } from './services/book.service';
 
 
 
@@ -22,9 +23,10 @@ export interface DialogData {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[
+  providers: [
     UserService,
-    ReservaService
+    ReservaService,
+    BookService
   ]
 })
 
@@ -38,20 +40,20 @@ export class AppComponent {
   }
 
   visible = false;
-    login(): void {
-      this.visible = true;
-      const dialogRef = this.dialog.open(IniciarSesionComponent, {
-        width: '250px',
-        data: {name: this.name, animal: this.animal}
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closedhh');
-        this.animal = result;
-      });
-     
-    }
+  login(): void {
+    this.visible = true;
+    const dialogRef = this.dialog.open(IniciarSesionComponent, {
+      width: '250px',
+      data: { name: this.name, animal: this.animal }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closedhh');
+      this.animal = result;
+    });
 
-    // https://es.stackoverflow.com/questions/182357/error-staticinjectorerrorappmodulehttpclient
+  }
+
+  // https://es.stackoverflow.com/questions/182357/error-staticinjectorerrorappmodulehttpclient
 
 
 

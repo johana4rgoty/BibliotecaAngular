@@ -19,6 +19,9 @@ import { Book } from '../../services/book';
 })
 export class BibliotecaComponent implements OnInit {
 
+  books: Book[];
+  book: Book;
+
   hide = true;
   // validacion del email cuando aparece un error 
   email = new FormControl('', [Validators.required, Validators.email]);
@@ -28,9 +31,33 @@ export class BibliotecaComponent implements OnInit {
       this.email.hasError('email') ? 'No es valido' : '';
   }
 
-  constructor() { }
+  constructor(private loadingService: TdLoadingService,
+    private router: Router,
+    private bookService: BookService,
+    private dialogService: TdDialogService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.loadingService.register('books');
+    this.bookService.query<Array<Book>>({ sort: 'created', order: 'desc' })
+      .subscribe(invoices => {
+        this.books = invoices;
+        this.loadingService.resolve('books');
+      });
+    this.loadingService.register('book');
+    this.route.params.pipe(map((params: Params) => params.id)).subscribe(id => {
+      if (id) {
+        this.bookService.get<Book>(id).subscribe(customer => {
+          this.book = customer;
+          this.loadingService.resolve('book');
+        });
+      } else {
+        this.book = new Book();
+        this.loadingService.resolve('book');
+      }
+    });
+
   }
 
 }
