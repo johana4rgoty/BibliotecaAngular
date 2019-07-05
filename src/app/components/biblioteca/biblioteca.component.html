@@ -16,7 +16,7 @@
           <label class="sr-only" for="search-book" required>Buscar...</label>
           <input type="text" class="form-control" id="search-book" placeholder="Buscar...">
           <div class="input-group-prepend">
-            <button type="submit" class="btn btn-primary" onclick="searchTitle()"><i class="fas fa-search"></i></button>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
           </div>
         </div>
       </div>
@@ -28,9 +28,9 @@
     <div class="col-12 justify-content-center d-flex">
       <nav aria-label="page-nav">
         <ul class="pagination">
-          <li class="page-item"><a class="page-link" onclick="searchTitle()" href="#" id="searchTitle">Titulo</a></li>
-          <li class="page-item"><a class="page-link" onclick="searchAutor()" href="#">Autor</a></li>
-          <li class="page-item"><a class="page-link" onclick="searchISBN()" href="#">ISBN</a></li>
+          <li class="page-item"><a class="page-link" href="#" id="searchTitle">Titulo</a></li>
+          <li class="page-item"><a class="page-link" href="#">Autor</a></li>
+          <li class="page-item"><a class="page-link" href="#">ISBN</a></li>
 
         </ul>
       </nav>
@@ -39,7 +39,17 @@
 
   <main class="books-container container ">
     <div class="row">
-      <div class="col-12" id="card-container">
+      <div class="col-12">
+        <div *ngFor="let book of books">
+          <div class="card">
+            {{book.titulo}}
+          </div>
+
+          <!--  -->
+
+
+
+        </div>
 
       </div>
     </div>

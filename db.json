@@ -28,6 +28,7 @@
   ],
   "books": [
     {
+      "id": 1,
       "titulo": "Ingeniería de métodos movimientos y tiempos",
       "img": "img/ingenieria-de-metodos-9789587713428-ecoe.jpg",
       "autor": "Luis Carlos Palacios",
@@ -39,6 +40,7 @@
       ]
     },
     {
+      "id": 2,
       "titulo": "Matemática aplicada a la ingeniería química",
       "img": "img/matematica_aplicada.jpg",
       "autor": "Juan de Burgos Roman",
@@ -52,6 +54,7 @@
       ]
     },
     {
+      "id": 3,
       "titulo": "Ingeniería de procesos y de Planta",
       "img": "img/ingenieria_procesos.jpg",
       "autor": "Luis Cuatrecasas",
@@ -63,6 +66,7 @@
       ]
     },
     {
+      "id": 4,
       "titulo": "Física para ciencias e ingeniería",
       "img": "img/fisica_serway.jpg",
       "autor": "Raymond A. Serway",
@@ -75,6 +79,7 @@
       ]
     },
     {
+      "id": 5,
       "titulo": "Química",
       "img": "img/quimica_raymond.png",
       "autor": "Raymond Chang",
@@ -86,6 +91,7 @@
       ]
     },
     {
+      "id": 6,
       "titulo": "Introducción al análisis de circuitos",
       "img": "img/circuitos_boylestad.jpg",
       "autor": "Robert Boylestad",
