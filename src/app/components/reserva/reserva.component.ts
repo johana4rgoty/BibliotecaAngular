@@ -89,7 +89,7 @@ export class ReservaComponent implements OnInit {
   //date del dateEntrega
   
   date  =  new  FormControl(new Date());
-  
+  dateEntregaD = new Date();
   
   // date2 = new Date(this.date.value.getFullYear(),this.date.value.getMonth(),this.date.value.getDay());
   
@@ -101,6 +101,7 @@ export class ReservaComponent implements OnInit {
     let select:number = parseInt(this.reservaForm.get('selectedReserva').value)
     let diaEntrega:number = dia+select
     let date2 = new Date(event.value.getFullYear(),event.value.getMonth(),event.value.getDate()+select)
+    this.dateEntregaD = date2;
     let date3= new FormControl();
     console.log(date2)
     console.log(select)
@@ -127,18 +128,18 @@ export class ReservaComponent implements OnInit {
 
       this.reservaForm = this.formBuilder.group({
         id: [''],        
-        userId: [0],
+        userId: [],
         book: ['', Validators.required],
         dateReserva: ['', Validators.required],
         selectedReserva: [1, Validators.required],
          //hours: ['', [Validators.required, HoursValidator]],
-        dateEntrega: [999, Validators.required],
+        dateEntrega: this.dateEntregaD,
+        // dateEntrega: new FormControl(this.date2),
        
       });
      }
 
-     
-
+    
      ngOnInit() {
       this.loadingService.register('reserva');
       this.loadingService.register('users');
@@ -153,6 +154,7 @@ export class ReservaComponent implements OnInit {
         if (reservaId) {
           this.reservaService.get<Reserva>(reservaId).subscribe(reserva => {
              this.reservaForm.setValue(reserva);
+             
              this.reserva = reserva;
              this.loadingService.resolve('reserva');
            });
@@ -164,7 +166,8 @@ export class ReservaComponent implements OnInit {
   
        combineLatest(
          this.reservaForm.get('selectedReserva').valueChanges,
-         this.reservaForm.get('dateReserva').valueChanges
+         this.reservaForm.get('dateReserva').valueChanges,
+         
        ).subscribe(([selectedReserva = 0, dateEntrega = 0]) => {
         //  this.dateN = selectedReserva+ dateEntrega;
        });

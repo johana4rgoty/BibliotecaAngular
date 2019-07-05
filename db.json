@@ -16,6 +16,14 @@
       "dateReserva": "2019-07-04T05:00:00.000Z",
       "selectedReserva": "un dia",
       "dateEntrega": "2019-07-05T05:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": "2",
+      "book": "g",
+      "dateReserva": "2019-07-20T05:00:00.000Z",
+      "selectedReserva": "2",
+      "dateEntrega": "2019-07-05T00:23:24.104Z"
     }
   ],
   "books": [

@@ -30,6 +30,17 @@
               Date is required
             </mat-error>
           </mat-form-field>
+          
+          <mat-form-field>
+            <mat-label>Dias de reserva</mat-label>
+            <select matNativeControl [(ngModel)]="selectedReserva" name="day" formControlName="selectedReserva">
+              <option value="" selected></option>
+              <option *ngFor="let day of days" [value]="day.viewValue">
+                {{day.viewValue}}
+              </option>
+            </select>
+            <!-- {{selectedReserva}} -->
+          </mat-form-field>
 
           <mat-form-field>
             <input matInput [matDatepicker]="picker2" placeholder="dateReserva" formControlName="dateReserva"
@@ -53,30 +64,21 @@
             <input name="select" placeholder="Select" type="number" matInput formControlName="selectedReserva">
            
           </mat-form-field> -->
-          <mat-form-field>
-            <mat-label>Dias de reserva</mat-label>
-            <select matNativeControl [(ngModel)]="selectedReserva" name="day" formControlName="selectedReserva">
-              <option value="" selected></option>
-              <option *ngFor="let day of days" [value]="day.viewValue">
-                {{day.viewValue}}
-              </option>
-            </select>
-            <!-- {{selectedReserva}} -->
-          </mat-form-field>
+        
 
           
 
           <mat-form-field>
-            <input matInput [matDatepicker]="picker3"  placeholder="dateEntrega" formControlName="dateEntrega" [value]="date.value">
-            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
-            <mat-datepicker #picker3></mat-datepicker>
+            <input matInput   placeholder="dateEntrega" formControlName="dateEntrega">
+            <!-- <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker> -->
           </mat-form-field>
           <h1>{{date2}}</h1>
 
-          <div class="total">
+          <!-- <div class="total">
             DateNew : {{dateN }}
             <div *ngFor="let e of events">{{e}}</div>
-          </div>
+          </div> -->
         </div>
 
       </mat-card-content>
